@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<testsuite failures="0" skipped="0" name="cucumber-js" time="5.106792398" tests="1">
-  <testcase classname="Open MRS" name="Verify Enter The Open MRS Demo button functionality" time="5.106792398">
+<testsuite failures="0" skipped="0" name="cucumber-js" time="4.433198196999999" tests="1">
+  <testcase classname="Open MRS" name="Verify Enter The Open MRS Demo button functionality" time="4.433198196999999">
     <system-out><![CDATA[Given User navigates to OpenMrs page......................................passed
 Given User clicks on Demo button..........................................passed
 When User clicks on Enter the OpenMRS Demo button.........................passed
