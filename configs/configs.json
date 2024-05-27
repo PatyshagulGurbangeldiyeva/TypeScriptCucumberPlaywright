@@ -1,0 +1,32 @@
+{
+    "TestConfig": {
+        "TestEnv": "QA", 
+          "Browser": "chrome",
+
+        "QAConfig": {
+            "URL": "https://openmrs.org", 
+            "username1": "",
+            "pwd": "",
+            "trrun": "provide testrunID",
+            "trenable": "false", 
+            "TenetId": "provice here tenet id for db",
+            "Auto_ClientId": "auto client id for db",
+            "Auto_ClientSecret": " auto client id for db",
+            "ConnectionString": "Data Source=workspace......."
+        },
+
+        "DevConfig": {
+            "URL": "https://www.amazon.com/",
+            "username1": "",
+            "pwd": ""
+        },
+
+        "ProdConfig": {
+            "URL": "https://www.amazon.com/",
+            "username1": "",
+            "pwd": ""
+        }
+
+
+    }
+}

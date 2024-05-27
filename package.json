@@ -1,0 +1,30 @@
+{
+  "name": "cucumberplaywrighttypescript",
+  "version": "1.0.0",
+  "description": "automation of UO with cucumber playright typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js test & npx ts-node index.ts"
+  },
+  "keywords": [
+    "ts",
+    "pw",
+    "js"
+  ],
+  "author": "Paty",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.7.0",
+    "@playwright/test": "^1.44.0",
+    "cucumber-html-report": "^0.6.5",
+    "cucumber-html-reporter": "^7.1.1",
+    "dotenv": "^16.4.5",
+    "playwright": "^1.44.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "log4js": "^6.9.1"
+  }
+}
