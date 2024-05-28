@@ -31,4 +31,19 @@ Steps of creating a new framework:
    >> dot-env:  "npm i dotenv -D" (env file)
    >> @faker-js/faker: "npm i @faker-js/faker" or "npm i -D @faker-js/faker" (this library used to get some data like fname, lname and etc)
    >> log4js: "npm i log4js" or "npm i -D log4js" we will use it to generate logs (this is optional)
-5. 
+5. After all these dependencies installations are done, create a "TS config" file. This file is used in TS projects to specify compiler options and root files.
+   >> run command "npx tsc --init"
+6. Navigate to tsConfig file and change below options and uncomment them:
+   "target":"es2020", "mode":"common js", "esModuleInterop":"true", "forceConsistentCasingFileNames":"true", "strict":"true", "resolveJsModule":"true"
+7. On the same file add "exclude":["node_modules"], outside of Compiler Options field. (by adding this, we are asking TS do not check imported packages)
+8. After all these steps are done we are good to create our project structure
+9. After you have created the feature file and implemented the steps, you need to create a "cucumber.json" file in a root directory
+   There you need to provide the path of feature file, step defenitions, report options
+
+Note: after you have created feature file, and implemented the steps, and still see the warning that steps were not impmlemented in feature file. execute below steps
+  >> "CTRL+," (Show settings)
+  >> Search for Cucumber
+  >> Click on "Edit in settings.jso"
+  >> add "cucumber.feature":[the paths that you have provided for feature file] (in cucumber.json file)
+  >> add "cucumber.glue":[the path that you have provided for steps defenition] (in cucumber.json file)
+   
