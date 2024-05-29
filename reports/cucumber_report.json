@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1311498800
+              "duration": 852038100
             },
             "embeddings": [
               {
@@ -33,7 +33,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 7802116400
+              "duration": 3767206799
             }
           },
           {
@@ -46,7 +46,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1479196699
+              "duration": 943276100
             }
           },
           {
@@ -59,7 +59,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1765745100
+              "duration": 968116900
             }
           },
           {
@@ -71,9 +71,8 @@
               "location": "src\\tests\\steps\\openMrsSteps.ts:28"
             },
             "result": {
-              "status": "failed",
-              "duration": 4475306599,
-              "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"LogIn\"\u001b[39m\nReceived: \u001b[31m\"Continue\"\u001b[39m\n    at Proxy.<anonymous> (C:\\Users\\patys\\source\\repos\\CucumberTSPlaywright\\node_modules\\playwright\\lib\\matchers\\expect.js:177:37)\n    at World.<anonymous> (C:\\Users\\patys\\source\\repos\\CucumberTSPlaywright\\src\\tests\\steps\\openMrsSteps.ts:34:20)"
+              "status": "passed",
+              "duration": 2819888399
             }
           },
           {
@@ -81,11 +80,11 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 246189400
+              "duration": 177171899
             },
             "embeddings": [
               {
-                "data": "c2NlbmFyaW8gZW5kZWQ6IFZlcmlmeSBFbnRlciBUaGUgT3BlbiBNUlMgRGVtbyBidXR0b24gZnVuY3Rpb25hbGl0eSBhbmQgc2NuZWFyaW8gc3RhdHVzIGlzIDpGQUlMRUQ=",
+                "data": "c2NlbmFyaW8gZW5kZWQ6IFZlcmlmeSBFbnRlciBUaGUgT3BlbiBNUlMgRGVtbyBidXR0b24gZnVuY3Rpb25hbGl0eSBhbmQgc2NuZWFyaW8gc3RhdHVzIGlzIDpQQVNTRUQ=",
                 "mime_type": "text/plain"
               },
               {

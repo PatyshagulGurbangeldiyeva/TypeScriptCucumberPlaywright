@@ -21,7 +21,7 @@ Steps of creating a new framework:
    >> keywords: any words fine (like ts, pw, ts)
    >> author: anything
 3. After initializing is done "package.json" will be created under your project and while adding dependencies, they will be added in this file.
-4. We are going to add 7 dependencies from terminal
+4. We are going to add some dependencies from terminal
    >>  typescript: "typescript -D" (language that we are using)
    >> ts-node: "ts-node -D"
    >> @cucumber/cucumber: "npm i @cucumber/cucumber -D" (to run cucumber project)
@@ -31,6 +31,8 @@ Steps of creating a new framework:
    >> dot-env:  "npm i dotenv -D" (env file)
    >> @faker-js/faker: "npm i @faker-js/faker" or "npm i -D @faker-js/faker" (this library used to get some data like fname, lname and etc)
    >> log4js: "npm i log4js" or "npm i -D log4js" we will use it to generate logs (this is optional)
+   >> mssql: "npm i mssql" (if you will use microsoft sql for assertion)
+   >> xlsx: "npm i xlsx" (for excel)
 5. After all these dependencies installations are done, create a "TS config" file. This file is used in TS projects to specify compiler options and root files.
    >> run command "npx tsc --init"
 6. Navigate to tsConfig file and change below options and uncomment them:

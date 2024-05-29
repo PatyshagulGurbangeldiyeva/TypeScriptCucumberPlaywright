@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js test & npx ts-node index.ts",
-   "test with rerun function": "cucumber-js test --retry 1 & npx ts-node index.ts"
-    
+    "test with rerun function": "cucumber-js test --retry 1 & npx ts-node index.ts"
   },
   "keywords": [
     "ts",
@@ -24,9 +23,12 @@
     "playwright": "^1.44.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
+    
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
-    "log4js": "^6.9.1"
+    "log4js": "^6.9.1",
+    "mssql": "^10.0.2",
+    "xlsx": "^0.18.5"
   }
 }

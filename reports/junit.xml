@@ -1,15 +1,9 @@
 <?xml version="1.0"?>
-<testsuite failures="1" skipped="0" name="cucumber-js" time="17.080052998" tests="1">
-  <testcase classname="Open MRS" name="Verify Enter The Open MRS Demo button functionality" time="17.080052998">
-    <failure type="Error" message="[2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m&#xA;&#xA;Expected: [32m&quot;LogIn&quot;[39m&#xA;Received: [31m&quot;Continue&quot;[39m"><![CDATA[Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
-
-Expected: [32m"LogIn"[39m
-Received: [31m"Continue"[39m
-    at Proxy.<anonymous> (C:\Users\patys\source\repos\CucumberTSPlaywright\node_modules\playwright\lib\matchers\expect.js:177:37)
-    at World.<anonymous> (C:\Users\patys\source\repos\CucumberTSPlaywright\src\tests\steps\openMrsSteps.ts:34:20)]]></failure>
+<testsuite failures="0" skipped="0" name="cucumber-js" time="9.527698197" tests="1">
+  <testcase classname="Open MRS" name="Verify Enter The Open MRS Demo button functionality" time="9.527698197">
     <system-out><![CDATA[Given User navigates to OpenMrs page......................................passed
 Given User clicks on Demo button..........................................passed
 When User clicks on Enter the OpenMRS Demo button.........................passed
-Then User navigate to Login page of Open MRS..............................failed]]></system-out>
+Then User navigate to Login page of Open MRS..............................passed]]></system-out>
   </testcase>
 </testsuite>
