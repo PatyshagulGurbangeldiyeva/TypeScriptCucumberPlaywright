@@ -4,7 +4,9 @@
   "description": "automation of UO with cucumber playright typescript",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js test & npx ts-node index.ts"
+    "test": "cucumber-js test & npx ts-node index.ts",
+   "test with rerun function": "cucumber-js test --retry 1 & npx ts-node index.ts"
+    
   },
   "keywords": [
     "ts",

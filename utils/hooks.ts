@@ -1,5 +1,5 @@
 import {BeforeAll, AfterAll, Before, After, setDefaultTimeout, Status} from "@cucumber/cucumber";
-import {Browser, BrowserContext, Page, chromium, firefox} from "playwright";
+import {Browser, BrowserContext, Page, chromium, firefox, webkit} from "playwright";
 import setUpClass from "../utils/setUpClass";
 import dotenv from 'dotenv';
 
@@ -29,11 +29,15 @@ BeforeAll(async function(){
         break;
         case 'firefox':
             case 'ff':
-                browser=await chromium.launch({headless:false, channel:'firefox', args:['--start-maximized']}); 
+                browser=await firefox.launch({headless:false, args:['--start-maximized']}); 
                 break;                
         case 'edge':
             case 'msedge':
                 browser=await chromium.launch({headless:false, channel:'msedge', args:['--start-maximized']});
+                break;
+        case 'webkit':
+            case 'safari':
+                browser=await webkit.launch({headless:false, args:['--start-maximized']});
                 break;
         default:
            throw new Error('Invalid browser type: '+browserType+' is passed');
@@ -55,14 +59,29 @@ Before(async function(scenario){
 
 After (async function(scenario){
 
+    const todayDate:Date=new Date()
+    const year:number=todayDate.getFullYear();
+    const month:number=todayDate.getMonth()+1; // Month are zero based, so January is 0
+    const day:number=todayDate.getDate();
+    const hour:number=todayDate.getHours();
+    const mins:number=todayDate.getMinutes();
+    const seconds:number=todayDate.getSeconds();
+    
+
+    
+    const todayDateString:string=year+"-"+month.toString().padStart(2,'0')+"-"+day.toString().padStart(2,'0');
+    console.log("today date is: "+todayDateString);
+
+    const timeString:string=hour.toString().padStart(2,'0')+"-"+mins.toString().padStart(2,'0')+"-"+seconds.toString().padStart(2,'0');
+    console.log("today time is: "+timeString);
     this.attach("scenario ended: "+scenario.pickle.name+" and scneario status is :"+scenario.result?.status);
 
 
     if (scenario.result?.status==Status.PASSED){
-        const img = await page.screenshot({path: "./screenshots/passed/"+scenario.pickle.name+".png"});
+        const img = await page.screenshot({path: "./screenshots/passed/"+todayDateString+"_"+timeString+scenario.pickle.name+".png"});
         this.attach(img,'image/png');
     }else{
-        const img = await page.screenshot({path: "./screenshots/failed/"+scenario.pickle.name+".png"});
+        const img = await page.screenshot({path: "./screenshots/failed/"+todayDateString+"_"+timeString+scenario.pickle.name+".png"});
         this.attach(img,'image/png');
     }
     
