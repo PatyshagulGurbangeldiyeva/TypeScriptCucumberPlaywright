@@ -2,6 +2,7 @@ import { Given, When, Then } from "@cucumber/cucumber";
 import setUpClass from "../../../utils/setUpClass";
 import {expect} from "@playwright/test";
 import openMrsPage from "../pages/openMrsPage";
+import {dbUtils }from "../../../utils/QAUtilLib/dbUtils";
 
 
 let openMrsPg:openMrsPage=new openMrsPage();

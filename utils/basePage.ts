@@ -1,8 +1,13 @@
 import { getGherkinScenarioLocationMap } from "@cucumber/cucumber/lib/formatter/helpers/gherkin_document_parser";
-import {page} from "./hooks";
+import {page, bCtx} from "./hooks";
+import {Page} from "@playwright/test";
 
 export default class basePage{
+    currentpage: Page;
 
+    constructor(page:Page){
+        this.currentpage = page;
+    }
 
 async navigateToURL(url:string){
     await page.goto(url);
@@ -43,4 +48,34 @@ async isVisible(locator:string):Promise<boolean>{
 async getText(locator:string):Promise<string>{
     return (await page.innerText(locator)).trim();
 }
+
+async newPage(locator:string){
+
+    page.click(locator);
+    const [newPage]=await Promise.all
+    (
+        [
+            await bCtx.waitForEvent("page")
+
+        ]
+    )
+    await newPage.waitForLoadState();
+
+    await newPage.click(locator);
+
+    await newPage
+
+}
+
+/**
+   * Navigates to the login page,
+   * sets the callback URL to redirect to after login.
+   * After login is successful, authentication will auto redirect to callbackUrl.
+   */
+async navigate(callbackUrl: string) {
+    this.url = callbackUrl;
+    await this.page.goto(this.url);
+  }
+
+  
 }

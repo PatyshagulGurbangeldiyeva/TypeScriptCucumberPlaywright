@@ -99,6 +99,7 @@ AfterAll(async function(){
 });
 
 export{page};
+export {bCtx};
 
 // export function getPage():Page{
     
