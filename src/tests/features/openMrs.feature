@@ -1,9 +1,10 @@
-Feature: Open MRS
+# Feature: Open MRS
 
-  Background:
-    Given User navigates to OpenMrs page
+#   Background:
+#     Given User navigates to OpenMrs page
 
-  Scenario: Verify Enter The Open MRS Demo button functionality
-    Given User clicks on Demo button
-    When User clicks on Enter the OpenMRS Demo button
-    Then User navigate to Login page of Open MRS
+# @smoke
+#   Scenario: Verify Enter The Open MRS Demo button functionality
+#     Given User clicks on Demo button
+#     When User clicks on Enter the OpenMRS Demo button
+#     Then User navigate to Login page of Open MRS

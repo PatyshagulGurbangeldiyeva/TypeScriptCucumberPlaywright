@@ -42,10 +42,12 @@ Steps of creating a new framework:
 9. After you have created the feature file and implemented the steps, you need to create a "cucumber.json" file in a root directory
    There you need to provide the path of feature file, step defenitions, report options
 
-Note: after you have created feature file, and implemented the steps, and still see the warning that steps were not impmlemented in feature file. execute below steps
+Note1: after you have created feature file, and implemented the steps, and still see the warning that steps were not impmlemented in feature file. execute below steps
   >> "CTRL+," (Show settings)
   >> Search for Cucumber
   >> Click on "Edit in settings.jso"
   >> add "cucumber.feature":[the paths that you have provided for feature file] (in cucumber.json file)
   >> add "cucumber.glue":[the path that you have provided for steps defenition] (in cucumber.json file)
+
+Note2: If you have provided Hooks in different folder directory, do not forget to link it in cucumber.json file where steps were linked. "require":["src/tests/steps/**/*.ts", "utils/*.ts"],
    

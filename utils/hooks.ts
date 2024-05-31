@@ -7,9 +7,9 @@ import dotenv from 'dotenv';
 
 setDefaultTimeout(1000*60*2);
 
-let browser:Browser;
-let bCtx:BrowserContext;
-let page:Page;
+// let browser:Browser;
+// let bCtx:BrowserContext;
+// let page:Page;
 
 BeforeAll(async function(){
     setUpClass.testSetUp();
@@ -25,19 +25,19 @@ BeforeAll(async function(){
     switch (browserType){
         case 'chrome':
         case'gc':
-        browser=await chromium.launch({headless:false, channel:'chrome', args:['--start-maximized']});
+        global.browser=await chromium.launch({headless:false, channel:'chrome', args:['--start-maximized']});
         break;
         case 'firefox':
             case 'ff':
-                browser=await firefox.launch({headless:false, args:['--start-maximized']}); 
+                global.browser=await firefox.launch({headless:false, args:['--start-maximized']}); 
                 break;                
         case 'edge':
             case 'msedge':
-                browser=await chromium.launch({headless:false, channel:'msedge', args:['--start-maximized']});
+                global.browser=await chromium.launch({headless:false, channel:'msedge', args:['--start-maximized']});
                 break;
         case 'webkit':
             case 'safari':
-                browser=await webkit.launch({headless:false, args:['--start-maximized']});
+                global.browser=await webkit.launch({headless:false, args:['--start-maximized']});
                 break;
         default:
            throw new Error('Invalid browser type: '+browserType+' is passed');
@@ -48,8 +48,8 @@ BeforeAll(async function(){
 
 Before(async function(scenario){
 
-    bCtx=await browser.newContext({viewport:null, javaScriptEnabled:true});
-    page=await bCtx.newPage();
+    global.bCtx=await global.browser.newContext({viewport:null, javaScriptEnabled:true});
+    global.page=await global.bCtx.newPage();
     
     //page.goto(setUpClass.url);
 
@@ -70,36 +70,36 @@ After (async function(scenario){
 
     
     const todayDateString:string=year+"-"+month.toString().padStart(2,'0')+"-"+day.toString().padStart(2,'0');
-    console.log("today date is: "+todayDateString);
+    //console.log("today date is: "+todayDateString);
 
     const timeString:string=hour.toString().padStart(2,'0')+"-"+mins.toString().padStart(2,'0')+"-"+seconds.toString().padStart(2,'0');
-    console.log("today time is: "+timeString);
+    //console.log("today time is: "+timeString);
     this.attach("scenario ended: "+scenario.pickle.name+" and scneario status is :"+scenario.result?.status);
 
 
     if (scenario.result?.status==Status.PASSED){
-        const img = await page.screenshot({path: "./screenshots/passed/"+todayDateString+"_"+timeString+scenario.pickle.name+".png"});
+        const img = await global.page.screenshot({path: "./screenshots/passed/"+todayDateString+"_"+timeString+scenario.pickle.name+".png"});
         this.attach(img,'image/png');
     }else{
-        const img = await page.screenshot({path: "./screenshots/failed/"+todayDateString+"_"+timeString+scenario.pickle.name+".png"});
+        const img = await global.page.screenshot({path: "./screenshots/failed/"+todayDateString+"_"+timeString+scenario.pickle.name+".png"});
         this.attach(img,'image/png');
     }
     
 
 
-    await page.close();
-    await bCtx.close();
+    await global.page.close();
+    await global.bCtx.close();
 
 });
 
 AfterAll(async function(){
 
-    await browser.close();
+    await global.browser.close();
 
 });
 
-export{page};
-export {bCtx};
+// export{page};
+
 
 // export function getPage():Page{
     
