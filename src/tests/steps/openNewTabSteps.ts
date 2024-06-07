@@ -13,10 +13,10 @@ Given('User clicks on Explore Our Emr button', async function () {
 
 
 
-  Then('Verify user switched to a new tab {string} title', async function (string) {
+  Then('Verify user switched to a new tab {string} title', async function (value:string) {
    
    const actualText:string=(await openNewTabpg.getTextTheOpenMrsEMR());
-   const expectedString:string="The OpenMRS EMR";
+   const expectedString:string=value; //"The OpenMRS EMR";
 
    console.log("the actual text is: "+actualText);
 

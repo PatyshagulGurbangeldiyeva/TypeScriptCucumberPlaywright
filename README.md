@@ -49,5 +49,8 @@ Note1: after you have created feature file, and implemented the steps, and still
   >> add "cucumber.feature":[the paths that you have provided for feature file] (in cucumber.json file)
   >> add "cucumber.glue":[the path that you have provided for steps defenition] (in cucumber.json file)
 
-Note2: If you have provided Hooks in different folder directory, do not forget to link it in cucumber.json file where steps were linked. "require":["src/tests/steps/**/*.ts", "utils/*.ts"],
+Note2: If you have provided Hooks in different folder directory, do not forget to link it in cucumber.json file where steps were linked. "require":["src/tests/steps/**/*.ts", "utils/*.ts"]
+
+Note3: if you would like to run specific tags/ project : you need to configure it cucumberJson file then add the script under package.json.
+>> then you need to run it from local terminal: " npm run test:regression" (the script from packagejson)
    

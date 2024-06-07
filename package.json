@@ -4,8 +4,12 @@
   "description": "automation of UO with cucumber playright typescript",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js test & npx ts-node index.ts",
-    "test with rerun function": "cucumber-js test --retry 1 & npx ts-node index.ts"
+    "test:withreport": "cucumber-js test & npx ts-node index.ts",
+    "test:rerun": "cucumber-js test --retry 1 & npx ts-node index.ts",
+    "report":"npx ts-node index.ts",
+    "test:regression":"npm run test -p regression -env=qa & npm run report",
+    "test":"cucumber-js test  --retry 1" ,
+    "test:smoke":"npm run test -p smoke -env=qa & npm run report"
   },
   "keywords": [
     "ts",

@@ -3,7 +3,7 @@
 #   Background:
 #     Given User navigates to OpenMrs page
 
-# @smoke
+# @regression
 #   Scenario: Verify Enter The Open MRS Demo button functionality
 #     Given User clicks on Demo button
 #     When User clicks on Enter the OpenMRS Demo button

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<testsuite failures="0" skipped="0" name="cucumber-js" time="8.666778096" tests="1">
-  <testcase classname="Testing switching to tabs functionality" name="Verify open a new tab functionality by clicking on TheOpenMRSEMR btn" time="8.666778096">
+<testsuite failures="0" skipped="0" name="cucumber-js" time="10.362422098" tests="1">
+  <testcase classname="Testing scenarios with data table" name="Verify data table functionality" time="10.362422098">
     <system-out><![CDATA[Given User navigates to OpenMrs page......................................passed
-Given User clicks on Explore Our Emr button...............................passed
-Then Verify user switched to a new tab "The OpenMRS EMR" title............passed]]></system-out>
+Given User clicks What We Do drop down....................................passed
+Then User sees three available options....................................passed]]></system-out>
   </testcase>
 </testsuite>
