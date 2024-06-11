@@ -1,4 +1,4 @@
-import {BeforeAll, AfterAll, Before, After, setDefaultTimeout, Status} from "@cucumber/cucumber";
+import {BeforeAll, AfterAll, Before, After, setDefaultTimeout, Status, BeforeStep, AfterStep} from "@cucumber/cucumber";
 import {Browser, BrowserContext, Page, chromium, firefox, webkit} from "playwright";
 import setUpClass from "../utils/setUpClass";
 import dotenv from 'dotenv';
@@ -54,7 +54,18 @@ Before(async function(scenario){
     //page.goto(setUpClass.url);
 
     this.log( "Scenario title: "+scenario.pickle.name);
+    console.log("scenario title: "+scenario.pickle.name);
 
+});
+
+BeforeStep(async function (scenario){
+    this.log("step started: "+scenario.pickle.name);
+    console.log("step started: "+scenario.pickle.name);
+});
+
+AfterStep(async function(scenario){
+    this.log("step ended: "+scenario.pickle.name);
+    console.log("step ended: "+scenario.pickle.name);
 });
 
 After (async function(scenario){
