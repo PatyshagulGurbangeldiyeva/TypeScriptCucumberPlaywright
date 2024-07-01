@@ -1,14 +1,10 @@
 <?xml version="1.0"?>
-<testsuite failures="0" skipped="0" name="cucumber-js" time="15.155257885000001" tests="2">
-  <testcase classname="Open MRS" name="Verify Enter The Open MRS Demo button functionality" time="6.085309192">
-    <system-out><![CDATA[Given User navigates to OpenMrs page......................................passed
-Given User clicks on Demo button..........................................passed
-When User clicks on Enter the OpenMRS Demo button.........................passed
-Then User navigate to Login page of Open MRS..............................passed]]></system-out>
-  </testcase>
-  <testcase classname="Testing switching to tabs functionality" name="Verify open a new tab functionality by clicking on TheOpenMRSEMR btn" time="9.069948693">
+<testsuite failures="0" skipped="0" name="cucumber-js" time="14.045950896999999" tests="1">
+  <testcase classname="Testing switching to tabs functionality" name="Verify open a new tab functionality by clicking on TheOpenMRSEMR btn" time="14.045950896999999">
     <system-out><![CDATA[Given User navigates to OpenMrs page......................................passed
 Given User clicks on Explore Our Emr button...............................passed
-Then Verify user switched to a new tab "The OpenMRS EMR" title............passed]]></system-out>
+Then Verify user switched to a new tab "The OpenMRS EMR" title............passed
+And User switches back to first page......................................passed
+Then User sees three available buttons on OpenMRS main page...............passed]]></system-out>
   </testcase>
 </testsuite>
