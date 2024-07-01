@@ -9,7 +9,8 @@
     "test":"cucumber-js test  --retry 1" ,
     "report":"npx ts-node index.ts",
     "test:regression":"npm run test -env=qa -- --profile regression & npm run report",
-    "test:smoke":"npm run test -env=qa -- --profile smoke & npm run report"
+    "test:smoke":"npm run test -env=qa -- --profile smoke & npm run report",
+     "test:only":"npm run test -env=qa -- --profile only & npm run report"
     
     
   },

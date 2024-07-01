@@ -53,4 +53,7 @@ Note2: If you have provided Hooks in different folder directory, do not forget t
 
 Note3: if you would like to run specific tags/ project : you need to configure it cucumberJson file then add the script under package.json.
 >> then you need to run it from local terminal: " npm run test:regression" (the script from packagejson)
-   
+
+
+Note 3: the youtube video how to handle multiple frames and windows (tabs)
+   https://www.youtube.com/watch?v=JN16nilL8Wg&list=PLZMWkkQEwOPlS6BSWWqaAIrSNf_Gw4MQ1&index=8

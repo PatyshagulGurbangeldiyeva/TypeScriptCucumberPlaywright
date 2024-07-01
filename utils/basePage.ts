@@ -67,6 +67,37 @@ async newPage(locator:string){
 
     }
 
+    async switchToParentPage() {
+
+        console.log("the url of new page is: " + global.page.url());
+
+        const pages = global.page.context().pages();  // this method returns array
+        console.log("number of pages: " + pages.length);
+
+        //getting urls of each opened tabs/pages
+        console.log("opened pages urls are below: ");
+        
+        pages.forEach(tab => {
+            console.log(tab.url())
+
+        });
+
+        global.page=pages[1];
+        global.page.close();
+        //switch to first opened page by providing index 0
+        global.page=pages[0];
+
+        //if you want to switch to desired url use below method
+        // for (let index=0; index<pages.length; index++){
+        //     let url:string=pages[index].url();
+        //     if (url=="provide url"){
+        //         global.page=pages[index];
+        //     }
+        // }
+
+
+    }
+
 
   
 }

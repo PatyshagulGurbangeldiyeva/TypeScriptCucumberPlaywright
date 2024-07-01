@@ -58,15 +58,15 @@ Before(async function(scenario){
 
 });
 
-BeforeStep(async function (scenario){
-    this.log("step started: "+scenario.pickle.name);
-    console.log("step started: "+scenario.pickle.name);
-});
+// BeforeStep(async function (scenario){
+//     this.log("step started: "+scenario.pickle.name);
+//     console.log("step started: "+scenario.pickle.name);
+// });
 
-AfterStep(async function(scenario){
-    this.log("step ended: "+scenario.pickle.name);
-    console.log("step ended: "+scenario.pickle.name);
-});
+// AfterStep(async function(scenario){
+//     this.log("step ended: "+scenario.pickle.name);
+//     console.log("step ended: "+scenario.pickle.name);
+// });
 
 After (async function(scenario){
 
