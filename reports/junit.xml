@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<testsuite failures="0" skipped="0" name="cucumber-js" time="14.045950896999999" tests="1">
-  <testcase classname="Testing switching to tabs functionality" name="Verify open a new tab functionality by clicking on TheOpenMRSEMR btn" time="14.045950896999999">
+<testsuite failures="0" skipped="0" name="cucumber-js" time="14.454856497" tests="1">
+  <testcase classname="Testing switching to tabs functionality" name="Verify open a new tab functionality by clicking on TheOpenMRSEMR btn" time="14.454856497">
     <system-out><![CDATA[Given User navigates to OpenMrs page......................................passed
 Given User clicks on Explore Our Emr button...............................passed
 Then Verify user switched to a new tab "The OpenMRS EMR" title............passed

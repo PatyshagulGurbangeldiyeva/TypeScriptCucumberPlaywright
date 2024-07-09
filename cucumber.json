@@ -62,7 +62,7 @@
         "tags":"@smoke"
     },
 
-    "only":{
+    "testOnly":{
 
         "dryRun":false,
         "formatOptions":{
@@ -80,7 +80,7 @@
 
         ],
         "parallel":1,
-        "tags":"@only"
+        "tags":"@testOnly"
     }
 
 }

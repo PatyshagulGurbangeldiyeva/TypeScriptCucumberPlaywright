@@ -99,5 +99,51 @@ async newPage(locator:string){
     }
 
 
+    public async swithToURL(switchurl:string){
+
+        const pages = global.page.context().pages();  // this method returns array
+        console.log("number of pages: " + pages.length);
+         
+        for (let index=0; index<pages.length; index++){
+            let url:string=pages[index].url();
+            if (url==switchurl){
+                global.page=pages[index];
+            }
+        }
+    }
+
+
+    //return array of string
+    public async getTextInList(locators:any){
+
+        try{
+            var content:string[]=new Array();
+            var elements=await global.page.$$(locators);
+            for(let index=0; index<ElementInternals.length; index++){
+                content.push(await elements[index].innerText());
+            }
+            return content;
+        }catch (error){
+            console.log(error);
+        }
+    }
+
+
+    //return size of the list
+    public async getLengthOfList(locators:any){
+
+        try{
+            var content:string[]=new Array();
+            var count=0;
+            var elements=await global.page.$$(locators);
+            for(let index=0; index<ElementInternals.length; index++){
+                content.push(await elements[index].innerText());
+                count++;
+            }
+            return count;
+        }catch (error){
+            console.log(error);
+        }
+    }
   
 }

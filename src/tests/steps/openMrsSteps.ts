@@ -34,3 +34,16 @@ let openMrsPg:openMrsPage=new openMrsPage();
     console.log("actual btn is: "+actual);
     expect(actual).toBe(expected);
   });
+
+  Given('after providing credentials user authenticate himself', async function() {
+    
+    /*
+    1. you  need to instal otplib
+    2. then you need to import it to the step class where you are going to use as "import{authenticator} from 'otplib'"
+    3. generate method under this step:
+    await provideCredentials()
+    const token authenticator.generate('sharedSecret that company will provide');
+    await provideTokenToUIBox(token);
+    await clickOK();
+    */
+  })
