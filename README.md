@@ -45,7 +45,7 @@ Steps of creating a new framework:
 Note1: after you have created feature file, and implemented the steps, and still see the warning that steps were not impmlemented in feature file. execute below steps
   >> "CTRL+," (Show settings)
   >> Search for Cucumber
-  >> Click on "Edit in settings.jso"
+  >> Click on "Edit in settings.json"
   >> add "cucumber.feature":[the paths that you have provided for feature file] (in cucumber.json file)
   >> add "cucumber.glue":[the path that you have provided for steps defenition] (in cucumber.json file)
 
@@ -57,3 +57,6 @@ Note3: if you would like to run specific tags/ project : you need to configure i
 
 Note4: the youtube video how to handle multiple frames and windows (tabs)
    https://www.youtube.com/watch?v=JN16nilL8Wg&list=PLZMWkkQEwOPlS6BSWWqaAIrSNf_Gw4MQ1&index=8
+
+
+Note5: If you are going to use authentication you need to install otplib : www.npmjs.com/packages/otplib

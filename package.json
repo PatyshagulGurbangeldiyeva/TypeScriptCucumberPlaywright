@@ -6,13 +6,11 @@
   "scripts": {
     "test:withreport": "cucumber-js test & npx ts-node index.ts",
     "test:rerun": "cucumber-js test --retry 1 & npx ts-node index.ts",
-    "test":"cucumber-js test  --retry 1" ,
-    "report":"npx ts-node index.ts",
-    "test:regression":"npm run test -env=qa -- --profile regression & npm run report",
-    "test:smoke":"npm run test -env=qa -- --profile smoke & npm run report",
-     "test:only":"npm run test -env=qa -- --profile only & npm run report"
-    
-    
+    "test": "cucumber-js test  --retry 1",
+    "report": "npx ts-node index.ts",
+    "test:regression": "npm run test -env=qa -- --profile regression & npm run report",
+    "test:smoke": "npm run test -env=qa -- --profile smoke & npm run report",
+    "test:only": "npm run test -env=qa -- --profile testOnly & npm run report"
   },
   "keywords": [
     "ts",
@@ -30,12 +28,12 @@
     "playwright": "^1.44.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
-    
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
     "log4js": "^6.9.1",
     "mssql": "^10.0.2",
+    "otplib": "^12.0.1",
     "xlsx": "^0.18.5"
   }
 }
