@@ -7,39 +7,39 @@ export default class basePage{
 
   
 
-async navigateToURL(url:string){
+    public async navigateToURL(url:string){
     await global.page.goto(url);
 }
 
-async click(locator:string){
+public async click(locator:string){
     await global.page.click(locator);
 }
 
-async cleartextArea(locator:string):Promise<void>{
+public async cleartextArea(locator:string):Promise<void>{
     await global.page.click(locator);
     await global.page.keyboard.press("Control+A");
     await global.page.keyboard.press("Backspace");
 }
 
-async pressEsc(){
+public async pressEsc(){
     await global.page.keyboard.press("Escape");
 }
 
-async sleep(timeOut:number){
+public async sleep(timeOut:number){
     await global.page.waitForTimeout(timeOut);
 }
 
-async enterValue(locator:string, val:string){
+public async enterValue(locator:string, val:string){
 
     await global.page.fill(locator, val);
 }
 
-async waitForUrl(url:string){
+public async waitForUrl(url:string){
 
     await global.page.waitForURL(url);
 }
 
-async isVisible(locator:string):Promise<boolean>{
+public async isVisible(locator:string):Promise<boolean>{
     return await global.page.isVisible(locator);
 }
 
@@ -47,27 +47,42 @@ async getText(locator:string):Promise<string>{
     return (await global.page.innerText(locator)).trim();
 }
 
-async newPage(locator:string){
-
-    global.page.click(locator);
-    const [newPage]=await Promise.all
-    (
-        [
-            await global.bCtx.waitForEvent("page")
-
-        ]
-    )
-
+//by providing url we are navigating to a new page
+public async navigateToSecondPage(url: string){
+    const newPage=await global.bCtx.waitForEvent('page');
+    await newPage.goto(url);
     await newPage.waitForLoadState();
-    console.log("new tab is opened and the title of the page is: "+await newPage.title());
+    global.page=newPage;
+    await global.page.bringToFront();
+}
 
-    await newPage.waitForTimeout(5000)
+//by clicking on a locator navigating to the new page
+ public async newPage(locator:string){
+
+    const pagePromise=await global.bCtx.waitForEvent('page');
+    await global.page.click(locator);
+    const newPage=await pagePromise;
+    
+    console.log("new tab is opened and the title of the page is:"+await newPage.title());
+
+    await global.page.waitForTimeout(5000);
     global.page=newPage;
     await global.page.bringToFront();
 
     }
 
-    async switchToParentPage() {
+    public async selectNewPageWithTitle(pageTitle:string){
+        const pages=global.page.context().pages();
+        for (let i=0; i<pages.length;i++){
+            if (pages[i].title===pageTitle){
+                console.log("title of the page: "+pages[i].title);
+                global.page=pages[i];
+                await global.page.bringToFront();
+                break;
+            }
+        }
+    }
+    public async switchToParentPage() {
 
         console.log("the url of new page is: " + global.page.url());
 
@@ -99,7 +114,7 @@ async newPage(locator:string){
     }
 
 
-    public async swithToURL(switchurl:string){
+    public async switchToURL(switchurl:string){
 
         const pages = global.page.context().pages();  // this method returns array
         console.log("number of pages: " + pages.length);
