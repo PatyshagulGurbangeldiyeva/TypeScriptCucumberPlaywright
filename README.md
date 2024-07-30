@@ -60,3 +60,12 @@ Note4: the youtube video how to handle multiple frames and windows (tabs)
 
 
 Note5: If you are going to use authentication you need to install otplib : www.npmjs.com/packages/otplib
+
+Note6: if you would like to add some files/ folders to git ignore
+>> First open gitInore file and add the file name there
+>> then navigate to terminal and write below comments
+    git rm -r {file which was added to git ignore}
+    git status  (you will see changes which were midified)
+    git add --all . 
+    git commit -m "adding file to git ignore"
+    git push
