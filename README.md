@@ -60,3 +60,23 @@ Note4: the youtube video how to handle multiple frames and windows (tabs)
 
 
 Note5: If you are going to use authentication you need to install otplib : www.npmjs.com/packages/otplib
+
+Note6: if you would like to add some files/ folders to git ignore
+>> First open gitInore file and add the file name there
+>> then navigate to terminal and write below comments
+    git rm -r {file which was added to git ignore}
+    git status  (you will see changes which were midified)
+    git add --all . 
+    git commit -m "adding file to git ignore"
+    git push
+
+
+Note7: for testing email functionality we are going to use imap library.
+1. you need to have email address: jesicatestemail@gmail.com/ Test@123
+2. Navigate to that email >> settings >> Forwarding POP/IMAP tab
+   >> make sure : enable IMAP, Auto-Exponge off- wait for the client to update the server, Archive the message (i think deleting message will be the good one), do not limit the number of messages in imap folder options should be checked in
+3. navigate to Visual studio Code and install below libraries:
+   >> node-imap (https://www.npmjs.com/package/node-imap) >> command: npm i node-imap
+   >> mime-lib (https://www.npmjs.com/package/mime-lib) >> command: npm i mime-lib
+   >> cheerio (https://www.npmjs.com/package/cheerio) >> command: npm i cheerio
+   >> quoted-printable (https://www.npmjs.com/package/quoted-printable) >> npm i quoted-printable
