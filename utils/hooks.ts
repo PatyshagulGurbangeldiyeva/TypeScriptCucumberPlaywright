@@ -5,8 +5,10 @@ import dotenv from 'dotenv';
 import commonMethods from "./commonMethods";
 import path from 'path';
 //import {request} from from "playwright";
-import {testRailUtil} from './testRailUtil';
+import { testRailUtil } from "./QAUtilLib/testRailUtils";
 import filterPlugin from "@cucumber/cucumber/lib/filter";
+
+
 
 
 
@@ -96,40 +98,47 @@ Before(async function(scenario){
 
 After (async function(scenario){
 
-    //--------- this below code commented out, as I have generated common methods -------
-    // const todayDate:Date=new Date()
-    // const year:number=todayDate.getFullYear();
-    // const month:number=todayDate.getMonth()+1; // Month are zero based, so January is 0
-    // const day:number=todayDate.getDate();
-    // const hour:number=todayDate.getHours();
-    // const mins:number=todayDate.getMinutes();
-    // const seconds:number=todayDate.getSeconds();    
-    // const todayDateString:string=year+"-"+month.toString().padStart(2,'0')+"-"+day.toString().padStart(2,'0');
-    // //console.log("today date is: "+todayDateString);
-
-    // const timeString:string=hour.toString().padStart(2,'0')+"-"+mins.toString().padStart(2,'0')+"-"+seconds.toString().padStart(2,'0');
-    // //console.log("today time is: "+timeString);
-    // this.attach("scenario ended: "+scenario.pickle.name+" and scneario status is :"+scenario.result?.status);
-
     let uniqueDate:string=await _commanMethods.getTodayDate()+"_"+await _commanMethods.getCurrentTime();
+   
+   // var for Test Run 
+    var tags=scenario.pickle.tags.map(tag=>tag.name); // getting runned tags
+    var scenarioName=scenario.pickle.name;
+    var testRunID;
+    let testRunEnable:boolean=await _commanMethods.parseStringToBoolean(process.env.testRunEnable!);
+   // let testRunEnable:boolean= JSON.parse(process.env.testRunEnable!);  >> or you can use directly this one
+   console.log("test run enabled: "+testRunEnable+" and the type is: "+typeof testRunEnable);
     let matches:any=scenario.pickle.name.match(/C\d+/g); //getting scenario name from cucumber file (in test rail test case start with "C", so that is why we are removing "C" from the titile)
 
 
 
     if (scenario.result?.status==Status.PASSED){
        // const img = await global.page.screenshot({path: "./screenshots/passed/"+todayDateString+"_"+timeString+scenario.pickle.name+".png"});
-       
-
        let img_path='./screenshots/passed/'+uniqueDate+"_"+scenario.pickle.name+'.jpg';
        const img=await global.page.screenshot(({path:img_path}));
        this.attach(img,'image/jpg');  // this should attach screenshot to cucumber html report
 
 
-       //upload result to test rail
-       for (const match of matches){
-        await _testRailUtil.uploadTestResutl(match.replace("C", ""), 1, "Passed");
-       }
+        if (testRunEnable) {
+            if (tags.includes("Project 1")) {
+                testRunID = parseInt(process.env.testRunID!);
+                console.log("test run id for project 1 is: " + testRunID);
+                //upload result to test rail
+                for (const match of matches) {
+                    await _testRailUtil.uploadTestResult(match.replace("C", ""), 1, "Passed", testRunID);
+                }
+            } else if(tags.includes("Project2")){
+                testRunID = parseInt(process.env.testRunID2!);
+                console.log("test run id for project 2 is: " + testRunID);
+                //upload result to test rail
+                for (const match of matches) {
+                    await _testRailUtil.uploadTestResult(match.replace("C", ""), 1, "Passed", testRunID);
+                }
+            }
 
+       }
+      
+
+       // we need to close the page and browserContext then video recording is working
        await global.page.close();
        await global.bCtx.close();
 
@@ -145,10 +154,24 @@ After (async function(scenario){
         const img=await global.page.screenshot(({path:img_path}));
         this.attach(img,'image/png');
 
-       //upload result to test rail
-       for (const match of matches){
-        await _testRailUtil.uploatTestResulWithScreenshot(match.replace("C", ""), 8, scenario.result?.message, img_path);
-       };
+        if(testRunEnable){
+            if (tags.includes("project 1")) {
+                testRunID = parseInt(process.env.testRunID!);
+                console.log("test run id for project 1 is: " + testRunID);
+                //upload result to test rail
+                for (const match of matches) {
+                    await _testRailUtil.uploadTestResultWithScreenshot(match.replace("C", ""), 8, scenario.result?.message, img_path, testRunID);
+                };
+            }else if(tags.includes("project 2")){
+                testRunID = parseInt(process.env.testRunID2!);
+                console.log("test run id for project 2 is: " + testRunID);
+                //upload result to test rail
+                for (const match of matches) {
+                    await _testRailUtil.uploadTestResultWithScreenshot(match.replace("C", ""), 8, scenario.result?.message, img_path, testRunID);
+                };
+            }
+        }
+      
 
        await global.page.close();
        await global.bCtx.close();
