@@ -50,7 +50,7 @@ export default class commonMethods extends basePage{
         const hours:number=today.getHours();
         const minutes: number=today.getMinutes();
         const seconds:number=today.getSeconds();
-        const timeString=hours.toString().padStart(2,'0')+"-"+minutes.toString().padStart(2,'0')+"-"+seconds..toString().padStart(2,'0');
+        const timeString=hours.toString().padStart(2,'0')+"-"+minutes.toString().padStart(2,'0')+"-"+seconds.toString().padStart(2,'0');
         return timeString;
     }
 
@@ -95,6 +95,22 @@ export default class commonMethods extends basePage{
 
     public async clearDirectory(dirPath:string){
         await fsExtra.emptyDir(dirPath);
+    }
+
+    public async parseStringToBoolean(value:string):Promise<boolean>{
+        const trimValue=value.trim().toLocaleLowerCase();
+        if(trimValue=="true"|| trimValue=="1"|| trimValue=="yes"){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public async sortDescending(array:any[]):Promise<any[]>{
+        return new Promise((resolve)=>{
+            const sortedArray=array.sort((a,b)=> b.localCompare(a));
+            resolve(sortedArray);
+        })
     }
 
 }
